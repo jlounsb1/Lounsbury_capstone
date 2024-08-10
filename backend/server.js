@@ -34,6 +34,21 @@ app.post('/register', (req, res) => {
     .catch(err => res.json(err))
 })
 
+app.post('/login', (req, res) => {
+    const {username, password} = req.body;
+    User.findOne({username:username})
+        .then(user => {
+            if(user) {
+                if(user.password === password) {
+                    res.json('Success')
+                }else {
+                    res.json('password incorrect')
+                }
+            } else {
+                res.json('User not found')
+            }
+        })    
+})
 
 //Generic error handling
 app.use((err, req, res, next) => {

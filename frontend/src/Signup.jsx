@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
 // Here is resource I used to help set this up:
@@ -9,12 +11,14 @@ function Signup() {
     const [username, setUserName] =useState()
     const [password, setPassword] =useState()
     const [email, setEmail] =useState()
+    const navigate = useNavigate()
 
-    //I keep getting an error, console says its an axios error, and in network tab it says its a cors error
     const handleSubmit = (e) =>{
         e.preventDefault();
         axios.post(`http://localhost:3000/register`, {username, email, password,} )
-            .then(result => console.log(result))
+            .then(result => {console.log(result)
+                navigate('/login')
+            })
             .catch(err=>console.log(err))
     }
 
