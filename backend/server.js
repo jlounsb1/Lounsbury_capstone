@@ -23,8 +23,9 @@ app.get('/', async (req, res)=> {
 })
 
 app.post('/register', (req, res) => {
-   let newUser = User.create(req.body)
-    .then(newUser=>res.json(newUser))
+    User.create(req.body)
+    console.log(User, req.body)
+    .then(User=>res.json(User))
     .catch(err => res.json(err))
 })
 
