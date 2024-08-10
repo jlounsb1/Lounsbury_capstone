@@ -4,14 +4,19 @@ import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
 import User from './models/users.mjs'
+import bodyParser from 'body-parser'
+import cors from 'cors'
 
 //app information
 const PORT = 3000;
 const app = express();
 
 //data transfer middleware
-app.use(express.json());
-app.use(express.urlencoded())
+
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json());
+app.use(cors())
+
 
 await mongoose.connect(process.env.ATLAS_URI)
 //connect to mongoose
@@ -25,23 +30,10 @@ app.get('/', async (req, res)=> {
 app.post('/register', (req, res) => {
     User.create(req.body)
     console.log(User, req.body)
-    .then(User=>res.json(User))
+    .then(users=>res.json(users))
     .catch(err => res.json(err))
 })
 
-//This was just a test to make sure I set up a proper Schema
-// app.get('/create', async (req, res) =>{
-//     let user = await User.create({
-//         username:'merp',
-//         password:'abc123', 
-//         email:'asjkdf@fake.io',
-//         dog: {
-//             dogName:'MrWoof',
-//             age:8
-//         }  
-//     })
-//     res.send(user)
-// })
 
 //Generic error handling
 app.use((err, req, res, next) => {

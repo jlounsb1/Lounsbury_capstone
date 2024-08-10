@@ -3,10 +3,10 @@ import './App.css'
 import Login from './Login'
 import Signup from './Signup'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import cors from 'cors'
+
 
 function App() {
-
+console.log(URL)
   return (
       <div>
         <h1>Intro Page</h1>
