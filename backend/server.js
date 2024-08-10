@@ -22,6 +22,19 @@ app.get('/', async (req, res)=> {
     res.send(userList)
 })
 
+//This was just a test to make sure I set up a proper Schema
+// app.get('/create', async (req, res) =>{
+//     let user = await User.create({
+//         username:'merp',
+//         password:'abc123', 
+//         email:'asjkdf@fake.io',
+//         dog: {
+//             dogName:'MrWoof',
+//             age:8
+//         }  
+//     })
+//     res.send(user)
+// })
 
 //Generic error handling
 app.use((err, req, res, next) => {
