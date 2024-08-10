@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios'
+import cors from 'cors'
 
 // Here is resource I used to help set this up:
 // https://www.youtube.com/watch?v=ZVyIIyZJutM
@@ -9,11 +10,11 @@ function Signup() {
     const [password, setPassword] =useState()
     const [email, setEmail] =useState()
 
-    //this uses axios, i want fetch. And I have to set up connection
+    //I keep getting an error, console says its an axios error, and in network tab it says its a cors error
     const handleSubmit = (e) =>{
         e.preventDefault();
-        axios.post('http://localhost:3000/register', {username, email, password,})
-            .then(result => console.log(result))
+        axios.post('http://localhost:3000/register', {username, email, password,} )
+            .then(result => console.log(result.data))
             .catch(err=>console.log(err))
     }
 
