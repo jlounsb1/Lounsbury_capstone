@@ -28,8 +28,8 @@ app.get('/', async (req, res)=> {
 })
 
 app.post('/register', (req, res) => {
-    User.create(req.body)
     console.log(User, req.body)
+    User.create(req.body)
     .then(users=>res.json(users))
     .catch(err => res.json(err))
 })
