@@ -22,6 +22,12 @@ app.get('/', async (req, res)=> {
     res.send(userList)
 })
 
+app.post('/register', (req, res) => {
+   let newUser = User.create(req.body)
+    .then(newUser=>res.json(newUser))
+    .catch(err => res.json(err))
+})
+
 //This was just a test to make sure I set up a proper Schema
 // app.get('/create', async (req, res) =>{
 //     let user = await User.create({
