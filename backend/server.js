@@ -7,6 +7,7 @@ import User from './models/users.mjs'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import Dogs from './routes/Dogs.mjs'
+import PlayDates from './routes/PlayDates.mjs'
 
 //app information
 const PORT = 3000;
@@ -19,6 +20,7 @@ app.use(cors())
 
 //routing middleware
 app.use( '/Dogs', Dogs)
+app.use('/Playdates', PlayDates)
 
 
 await mongoose.connect(process.env.ATLAS_URI)

@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import Dogs from './components/Dogs'
 import PlayDates from './components/PlayDates'
+import CreatePlayDate from './components/CreatePlayDate'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </Route>
             <Route path='/dogs' element={<Dogs />}></Route>
             <Route path='/playdates' element={<PlayDates />}></Route>
+            <Route path='/playdates/CreatePlayDate' element={<CreatePlayDate />}></Route>
           </Routes>
         <Footer />
       </div>
