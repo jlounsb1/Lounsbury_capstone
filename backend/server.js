@@ -6,16 +6,19 @@ import mongoose from "mongoose";
 import User from './models/users.mjs'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import Dogs from './routes/Dogs.mjs'
 
 //app information
 const PORT = 3000;
 const app = express();
 
 //data transfer middleware
-
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 app.use(cors())
+
+//routing middleware
+app.use( '/Dogs', Dogs)
 
 
 await mongoose.connect(process.env.ATLAS_URI)
