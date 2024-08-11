@@ -49,6 +49,7 @@ function Signup() {
              />
         <button type="submit">Register</button>
         </form>
+        <Link to='/login'>Already Have an account? Sign In.</Link>
         </div>
     )
 }
