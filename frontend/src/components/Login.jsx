@@ -1,25 +1,30 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios'
+
 
 function Login() {
     const [username, setUserName] =useState()
     const [password, setPassword] =useState()
+    const [loggedIn, setLoggedIn] =useState(false)
     const navigate = useNavigate()
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        axios.post(`http://localhost:3000/login`, {username, password} )
+        axios.post(`http://localhost:3000/login`, {username, password, loggedIn} )
             .then(result => {
                 console.log(result)
                 if(result.data === "Success") {
-                    navigate('/')
+                    
+                    navigate(`/home/${username}`)
                 }
+                console.log(loggedIn)
             })
             .catch(err=>console.log(err))
     }
+
 
     return(
         <div>
@@ -39,7 +44,7 @@ function Login() {
             name="password" 
             onChange={(e) => setPassword(e.target.value)}
              />
-            <button type="submit">Login</button>
+            <button type="submit" name="true" onClick={(e) => setLoggedIn(Boolean(e.target.name))}>Login</button>
             </form>
         <Link to='/register'>Signup</Link>
         </div>

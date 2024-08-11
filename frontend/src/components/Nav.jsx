@@ -15,7 +15,7 @@ export default function Nav(props) {
                     <Link to='/dogs'>Dog List</Link>
                 </li>
                 <li>
-                    <Link to='/register'> Sign Up</Link>
+                    <Link to='/register'> Login /Sign Up</Link>
                 </li>
             </ul>
         </>
