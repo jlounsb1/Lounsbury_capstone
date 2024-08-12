@@ -5,9 +5,11 @@ import {useState} from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import{useParams} from 'react-router-dom'
 
-export default function Dogs() {
-
+export default function Dogs(props) {
+    const params =useParams();
+    const IUD =params.id
    //I can get the data to console, but I can't get it to return, and therefor be able to be mapped
     return (
         <>

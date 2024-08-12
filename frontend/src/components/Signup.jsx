@@ -2,7 +2,7 @@ import {useState} from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-
+import{useParams} from 'react-router-dom'
 
 // Here is resource I used to help set this up:
 // https://www.youtube.com/watch?v=ZVyIIyZJutM
@@ -21,7 +21,8 @@ function Signup() {
             })
             .catch(err=>console.log(err))
     }
-
+    const params =useParams();
+    const IUD =params.id
     return(
         <div>
         <h2>Register</h2>

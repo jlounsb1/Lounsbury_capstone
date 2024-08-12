@@ -1,7 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import{useParams} from 'react-router-dom'
 
 export default function Nav(props) {
+    const params =useParams();
+    const IUD =params.id
     return (
         <>
             <ul>

@@ -14,14 +14,11 @@ function App() {
   return (
       <div className="App">
         <Nav />
-        
           <Routes>
             <Route path='/register' element={<Signup />}></Route>
             <Route path='/login' element={<Login />}></Route>
             <Route path='/' element={<Home />}></Route>
-            <Route path='/home/:id' element={<Home />}>
-              
-            </Route>
+            <Route path='/home/:id' element={<Home />}></Route>
             <Route path='/dogs' element={<Dogs />}></Route>
             <Route path='/playdates' element={<PlayDates />}></Route>
             <Route path='/playdates/CreatePlayDate' element={<CreatePlayDate />}></Route>
