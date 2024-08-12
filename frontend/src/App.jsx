@@ -24,13 +24,13 @@ function App(props) {
     axios.post(`http://localhost:3000/login`, {username, password, loggedIn} )
         .then(result => {
             console.log(result)
-                navigate(`/${username}`)
+                navigate(`/`)
             console.log(loggedIn)
         })
         .catch(err=>console.log(err))
         
       }
-    //trying to set local storage, so i can pass it to other components
+    //placing user input into local storage, so I can access it globally
       let userLocalStorage = {
         username:username,
         password:password,
@@ -56,7 +56,7 @@ function App(props) {
               setLoggedIn={setLoggedIn}
             />}></Route>
             <Route path='/' element={<Home 
-              loggedIn={loggedIn}
+              
             />}></Route>
             <Route path='/:id' element={<Home />}></Route>
             <Route path='/dogs' element={<Dogs />}></Route>

@@ -7,7 +7,7 @@ export default function OtherDog(props){
 
     const params =useParams();
     const IUD =params.id
-
+//getting the whole list of other dogs
 axios.get(`http://localhost:3000/dogs`)
 .then((result) =>{
     console.log(result);
