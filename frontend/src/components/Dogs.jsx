@@ -28,7 +28,7 @@ export default function Dogs(props) {
     }, [])
     const params =useParams();
     const IUD =params.id
-    console.log(`Your dog logged from state: `, yourDog)
+    
 
     useEffect(()=>{
         axios.get(`http://localhost:3000/dogs`)
@@ -38,7 +38,7 @@ export default function Dogs(props) {
         })
         .catch(err => console.log(err))
     }, [])
-    console.log(`All dogs logged from state: `, allDogs, typeof allDogs)
+
     
 
    //I can get the data to console, but I can't get it to return, and therefor be able to be mapped

@@ -12,8 +12,8 @@ export default function PlayDates() {
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
     return(
        <>
-       <h3>List of playdates for {userLocalStorage_parsed.username}'s dog</h3>
-      
+       {userLocalStorage_parsed.username && <h3>List of playdates for {userLocalStorage_parsed.username}'s dog</h3>}
+        {!userLocalStorage_parsed.username && <h3>To see a list of your dogs Playdates, please log in</h3>}
        </>
     )
 }
