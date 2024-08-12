@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     
 })
 
-router.post('/createPlayDate', (req, res) => {
+router.post('/createPlayDate/:id', (req, res) => {
     console.log(PlayDates, req.body)
     PlayDates.create(req.body)
     .then(PlayDates=>res.json(PlayDates))

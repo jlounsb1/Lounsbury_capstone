@@ -8,10 +8,11 @@ import{useParams} from 'react-router-dom'
 export default function PlayDates() {
     const params =useParams();
     const IUD =params.id
-
+    const userInfo = localStorage.getItem("userLocalStorage")
+    let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
     return(
        <>
-       <h3>List of playdates for your dog</h3>
+       <h3>List of playdates for {userLocalStorage_parsed.username}'s dog</h3>
       
        </>
     )

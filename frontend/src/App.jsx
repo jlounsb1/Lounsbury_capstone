@@ -54,15 +54,12 @@ function App(props) {
               setPassword={setPassword}
               setLoggedIn={setLoggedIn}
             />}></Route>
-            <Route path='/' element={<Home 
-              
-            />}></Route>
+            <Route path='/' element={<Home />}></Route>
             <Route path='/:id' element={<Home />}></Route>
             <Route path='/dogs' element={<Dogs />}></Route>
             <Route path='/dogs/:id' element={<Dogs />}></Route>
             <Route path='/playdates' element={<PlayDates />}></Route>
-            <Route path='/playdates/:id' element={<PlayDates />}></Route>
-            <Route path='/playdates/:id/CreatePlayDate/:secondid' element={<CreatePlayDate />}></Route>
+            <Route path='/playdates/CreatePlayDate/:id' element={<CreatePlayDate />}></Route>
           </Routes>
         <Footer />
       </div>
