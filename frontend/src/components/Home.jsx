@@ -11,9 +11,9 @@ export default function Home (props) {
   
     return(
         <>  
-        {!userLocalStorage_parsed &&<h3> Welcome to Doggy Playdates</h3>}      
+        {!userLocalStorage_parsed.username &&<h3> Welcome to Doggy Playdates</h3>}      
         
-        {userLocalStorage_parsed && <h3>Test to see if I can access local storage elsewhere {userLocalStorage_parsed.username}</h3>}
+        {userLocalStorage_parsed.username && <h3>Test to see if I can access local storage elsewhere {userLocalStorage_parsed.username}</h3>}
         </>
     )
 }

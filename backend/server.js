@@ -34,7 +34,7 @@ app.get('/', async (req, res)=> {
 
 app.post('/register', (req, res) => {
     console.log(User, req.body)
-    if(req.body.username = User.username){
+    if(req.body.username === User.username){
         res.json('Username taken')
     }
     User.create(req.body)
