@@ -30,7 +30,7 @@ function App(props) {
         .catch(err=>console.log(err))
         
       }
-    
+    //trying to set local storage, so i can pass it to other components
       let userLocalStorage = {
         username:username,
         password:password,
@@ -55,7 +55,9 @@ function App(props) {
               setPassword={setPassword}
               setLoggedIn={setLoggedIn}
             />}></Route>
-            <Route path='/' element={<Home />}></Route>
+            <Route path='/' element={<Home 
+              loggedIn={loggedIn}
+            />}></Route>
             <Route path='/:id' element={<Home />}></Route>
             <Route path='/dogs' element={<Dogs />}></Route>
             <Route path='/dogs/:id' element={<Dogs />}></Route>

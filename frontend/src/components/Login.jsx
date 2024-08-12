@@ -11,14 +11,14 @@ function Login(props) {
         <div>
             <h2>Login</h2>
             <form onSubmit={props.handleSubmit}>
-            <label for="username"><strong>Username:</strong></label>
+            <label htmlFor="username"><strong>Username:</strong></label>
             <input
             type="text" 
             placeholder="username" 
             name={props.username} 
             onChange={(e) => props.setUserName(e.target.value)}
              />
-            <label for="password"><strong>Password:</strong></label>
+            <label htmlFor="password"><strong>Password:</strong></label>
             <input
             type="text" 
             placeholder="password" 
