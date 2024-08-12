@@ -4,7 +4,7 @@ import{useParams} from 'react-router-dom'
 
 const userInfo = localStorage.getItem("userLocalStorage")
 let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-console.log(userLocalStorage_parsed)
+
 
 
 export default function Nav(props) {
@@ -12,7 +12,7 @@ export default function Nav(props) {
     const IUD =params.id
     const userInfo = localStorage.getItem("userLocalStorage")
 let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-console.log(userLocalStorage_parsed)
+
     return (
         <>
             <ul>

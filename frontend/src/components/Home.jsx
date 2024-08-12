@@ -7,7 +7,7 @@ import React from 'react'
 export default function Home (props) {
     const userInfo = localStorage.getItem("userLocalStorage")
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-    console.log(userLocalStorage_parsed)
+    
   
     return(
         <>  

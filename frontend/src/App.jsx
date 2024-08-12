@@ -23,9 +23,8 @@ function App(props) {
     e.preventDefault();
     axios.post(`http://localhost:3000/login`, {username, password, loggedIn} )
         .then(result => {
-            console.log(result)
                 navigate(`/`)
-            console.log(loggedIn)
+            
         })
         .catch(err=>console.log(err))
         
@@ -39,7 +38,7 @@ function App(props) {
       let userLocalStorage_serialized = JSON.stringify(userLocalStorage)
       localStorage.setItem("userLocalStorage", userLocalStorage_serialized)
       let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-      console.log(userLocalStorage_parsed)
+      console.log(`what's in local storage:`, userLocalStorage_parsed)
     
   return (
       <div className="App">

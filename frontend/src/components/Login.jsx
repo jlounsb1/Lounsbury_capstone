@@ -1,12 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useState, useRef } from 'react';
-// import axios from 'axios'
-// import{useParams} from 'react-router-dom'
+
 
 function Login(props) {
-    // const params =useParams();
-    // const IUD =params.id
+
     return(
         <div>
             <h2>Login</h2>

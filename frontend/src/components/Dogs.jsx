@@ -12,7 +12,7 @@ export default function Dogs(props) {
     //pulling the users information from local storage
     const userInfo = localStorage.getItem("userLocalStorage")
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-    console.log(userLocalStorage_parsed)
+    
 
     //params in case I need them
     const params =useParams();
@@ -21,7 +21,6 @@ export default function Dogs(props) {
     //pulling the entire list of dogs from my database, then finding the one that matches the user in local storage
     axios.get(`http://localhost:3000/dogs`)
     .then((result) =>{
-    console.log(result.data)
     for(let i=0; i<result.data.length;i++){
         if(result.data[i].username==userLocalStorage_parsed.username) {
             let yourInfo = result.data[i]
@@ -39,7 +38,7 @@ export default function Dogs(props) {
        <div className="yourInfo">
         {userLocalStorage_parsed.username && <>
         <h3>{userLocalStorage_parsed.username}'s dogs info:</h3>
-            <p></p>
+            <p>This is where I want to list the users information</p>
             </>}
        </div>
         

@@ -10,7 +10,7 @@ export default function OtherDog(props){
 //getting the whole list of other dogs
 axios.get(`http://localhost:3000/dogs`)
 .then((result) =>{
-    console.log(result);
+    console.log(`data I want to map over in otherdog component use result.data just to see the array of dogs`, result);
  })
 .catch(err =>console.log(err))
 
