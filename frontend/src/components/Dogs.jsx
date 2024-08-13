@@ -1,16 +1,12 @@
-
-
 import React from 'react'
 import {useState, useEffect} from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
 import{useParams} from 'react-router-dom'
 
-    //pulling the users information from local storage
-    const userInfo = localStorage.getItem("userLocalStorage")
-    let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-    console.log(userLocalStorage_parsed)
+//pulling the users information from local storage
+const userInfo = localStorage.getItem("userLocalStorage")
+let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
 
 export default function Dogs(props) {
    const [yourDog, setYourDog]=useState('')
@@ -26,7 +22,6 @@ export default function Dogs(props) {
         })
         .catch(err =>console.log(err))
     }, [])
-   
 
     useEffect(()=>{
         axios.get(`http://localhost:3000/dogs`)
@@ -37,40 +32,27 @@ export default function Dogs(props) {
         .catch(err => console.log(err))
     }, [])
 
-    
     const params =useParams();
     const IUD =params.id
 
-
-    console.log(`your dog:`, yourDog, `information in local storage:`, userLocalStorage_parsed, `all dogs:`, allDogs)
-
-   //I can get the data to console, but I can't get it to return, and therefor be able to be mapped
     return (
-        <>
-       <div className="matchingChart">
+        <div>
        <div className="yourInfo">
-       
-        <h3>{yourDog.username}'s dogs info:</h3>
-            <p>Name: {yourDog.dogName}</p>
+        <h1>User: {yourDog.username}</h1>
+            <p>Your dog: {yourDog.dogName}</p>
             <p>Age: {yourDog.age}</p>
-            <p>This is where I want to list the users information</p>
-            
        </div>
-       <div className="otherDog">
-        <h3>Other Dogs To play with:</h3>
-        <p>This is where I want to map all the dogs</p>
+       <div className="otherDogs">
+        <h1>Other Dogs To play with:</h1>
            {allDogs.map((dog, index) => (
             <div key={index} className='eachDog'>
-                {/* I need to clean up my data before this actually shows up, if there is an instance without a field it will give an error */}
-                <p>Owner's Contact: {dog.email}</p>
                 <p>Dog: {dog.dogName}</p>
                 <p>Dog's Age :{dog.age}</p>
+                <p>Owner's Contact: {dog.email}</p>
                 <Link to={`/playdates/createplaydate/${dog._id}`}>Make A playdate</Link>
             </div>
            ))}
-        
        </div>
         </div>
-        </>
     )
 }

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import{useParams} from 'react-router-dom'
 import React from 'react'
-//This is where I want to create a playdate 
+
 
 function CreatePlayDate(props) {
     const [yourDog, setYourDog]=useState('')
@@ -36,25 +36,22 @@ function CreatePlayDate(props) {
            })
            .catch(err =>console.log(err))
        }, [])
-
-
      const params =useParams();
      const IUD =params.id
 
      //your info from local storage
     const userInfo = localStorage.getItem("userLocalStorage")
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-    // console.log(`your dog:`, yourDog, `local storage: `, userLocalStorage_parsed, `other Dog`, otherDog)
-       let dogOneValue = yourDog._id;
-       let dogTwoValue = otherDog._id
-      console.log(`create playdate section, dog one value:`, dogOneValue, `dog two value: `, dogTwoValue)
+    
+    let dogOneValue = yourDog._id;
+    let dogTwoValue = otherDog._id
     return (
-        <>
         <div>
-            <h1>Test</h1>
-            <h3>You: {yourDog.username}</h3>
-            <p>Your Dog: {yourDog.dogName}</p>
-            <p>Your Dog age: {yourDog.age}</p>
+        <h1>Make A Playdate</h1>
+        <div>
+            <h3>User: {yourDog.username}</h3>
+            <p>Dog: {yourDog.dogName}</p>
+            <p>Dog's age: {yourDog.age}</p>
         </div>
         <div>
             <h3>Playmate: {otherDog.dogName}</h3>
@@ -63,31 +60,31 @@ function CreatePlayDate(props) {
         </div>
         <div>
             <form onSubmit={props.handlePlayDate}>
-                <label htmlFor='dogOne'>You: {yourDog.username}. Please copy this code to the input below: {dogOneValue}</label>
+                <label htmlFor='dogOne'><b>You:</b> {yourDog.username}. <b>Please copy this code to the input below: </b>{dogOneValue}</label>
                 <input 
                 type="text"
                 
                 name={props.dogOne}
                 onChange ={(e) => props.setDogOne(e.target.value)}
-                />
-                <label htmlFor='dogTwo'>Playmate: {otherDog.dogName}. Owner: {otherDog.username}. Please copy this code to the input below: {dogTwoValue}</label>
+                /> <br />
+                <label htmlFor='dogTwo'><b>Playmate: </b>{otherDog.dogName} <b>Owner: </b>{otherDog.username} <b>Please copy this code to the input below: </b>{dogTwoValue}</label>
                 <input 
                 type="text"
                 name={props.dogTwo}
                
                 onChange ={(e) => props.setDogTwo(e.target.value)}
-                />
-                <label htmlFor='playDate'>Please write down time, place, and your information for Playdate:</label>
+                /> <br />
+                <label htmlFor='playDate'>Please write down time, place, and your information for playdate:</label><br />
                 <input 
-                type="text" 
+                type="textarea" 
                 name={props.playDate}
                 onChange={(e) => props.setPlayDate(e.target.value)}
-                />
+                /> <br /><br />
                 <button type="submit">Set up Play Date!</button>
             </form>
         </div>
         
-        </>
+        </div>
     )
 }
 
