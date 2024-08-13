@@ -1,24 +1,89 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import{useParams} from 'react-router-dom'
+import React from 'react'
 //This is where I want to create a playdate 
 
 function CreatePlayDate(props) {
-    const params =useParams();
-    const IUD =params.id
+    const [yourDog, setYourDog]=useState('')
+    const [otherDog, setOtherDog] =useState([])
+    //get your dog
+    useEffect(() =>{
+      axios.get(`http://localhost:3000/dogs`)
+         .then((result) =>{
+             for(let i=0; i<result.data.length;i++){
+                 if(result.data[i].username===userLocalStorage_parsed.username) {
+                 let yourInfo = result.data[i]
+                 setYourDog(yourInfo)}
+             };
+         })
+         .catch(err =>console.log(err))
+     }, [])
 
+
+    //get other dog from req.params
+    useEffect(() =>{
+        axios.get(`http://localhost:3000/dogs`)
+           .then((result) =>{
+               for(let i=0; i<result.data.length;i++){
+                   if(result.data[i]._id===IUD) {
+                   let otherDogInfo = result.data[i]
+                   setOtherDog(otherDogInfo)}
+               };
+           })
+           .catch(err =>console.log(err))
+       }, [])
+
+
+     const params =useParams();
+     const IUD =params.id
+
+     //your info from local storage
     const userInfo = localStorage.getItem("userLocalStorage")
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-    //I need to figure out how to get here from the map I am going to create, saving both the user info and the selected dog. probably through req params
+    console.log(`your dog:`, yourDog, `local storage: `, userLocalStorage_parsed, `other Dog`, otherDog)
+
     return (
         <>
-        <h1>Test</h1>
-        <h3>You : {userLocalStorage_parsed.username}</h3>
-
-        <h3>This will be the other dog: {IUD}</h3>
-        <p>Right now it is just req.params</p>
+        <div>
+            <h1>Test</h1>
+            <h3>You: {yourDog.username}</h3>
+            <p>Your Dog: {yourDog.dogName}</p>
+            <p>Your Dog age: {yourDog.age}</p>
+        </div>
+        <div>
+            <h3>Playmate: {otherDog.dogName}</h3>
+            <p>Playmate Age:{otherDog.age}</p>
+            <p>Owner: {otherDog.username}</p>
+        </div>
+        <div>
+            <form on Submit={props.handlePlayDate}>
+                <label htmlFor='dogOne'>You: {yourDog.username}</label>
+                <input 
+                type="text"
+                name={props.dogOne}
+                value={yourDog._id}
+                onSubmit ={props.setDogOne(yourDog._id)}
+                />
+                <label htmlFor='dogTwo'>Playmate: {otherDog.dogName}. Owner: {otherDog.username}</label>
+                <input 
+                type="text"
+                name={props.dogTwo}
+                value={otherDog._id}
+                onSubmit ={props.setDogOne(otherDog._id)}
+                />
+                <label htmlFor='playDate'>Please Select time fore Playdate:</label>
+                <input 
+                type="datetime-local" 
+                name={props.playDate}
+                onSubmit={props.setPlayDate(target.value)}
+                />
+                <button type="submit">Set up Play Date!</button>
+            </form>
+        </div>
+        
         </>
     )
 }

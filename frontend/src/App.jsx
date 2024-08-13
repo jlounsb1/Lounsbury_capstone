@@ -51,6 +51,25 @@ function App(props) {
         console.log(error)
       }
     }
+
+    const[dogOne, setDogOne]=useState()
+    const[dogTwo, setDogTwo]=useState()
+    const[playDate, setPlayDate]=useState()
+    //Create playdate function
+    const handlePlayDate = async (e) => {
+      e.preventDefault()
+      try{
+        await axios({
+          url: 'http://localhost:3000/playdates',
+          method:"POST", 
+          data: {dogOne, dogTwo, playDate}
+        })
+      }catch(error) {
+        console.log(error)
+      }
+    }
+
+
     //placing user input into local storage, so I can access it globally
       let userLocalStorage = {
         username:username,
@@ -101,7 +120,15 @@ function App(props) {
             />}></Route>
             <Route path='/dogs/:id' element={<Dogs />}></Route>
             <Route path='/playdates' element={<PlayDates />}></Route>
-            <Route path='/playdates/CreatePlayDate/:id' element={<CreatePlayDate />}></Route>
+            <Route path='/playdates/CreatePlayDate/:id' element={<CreatePlayDate 
+              handlePlayDate={handlePlayDate} 
+              dogOne={dogOne}
+              dogTwo={dogTwo}
+              playDate={playDate}
+              setDogOne={setDogOne}
+              setDogTwo={setDogTwo}
+              setPlayDate={setPlayDate}
+            />}></Route>
           </Routes>
         <Footer />
       </div>
