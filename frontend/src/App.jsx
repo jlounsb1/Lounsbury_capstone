@@ -116,11 +116,11 @@ function App(props) {
               setAge={setAge}
             />}></Route>
             <Route path='/' element={<Home />}></Route>
-            <Route path='/:id' element={<Home />}></Route>
             <Route path='/dogs' element={<Dogs 
             />}></Route>
-            <Route path='/dogs/:id' element={<Dogs />}></Route>
-            <Route path='/playdates' element={<PlayDates />}></Route>
+            <Route path='/playdates' element={<PlayDates 
+              //This is where I will pass down any state that I need
+            />}></Route>
             <Route path='/playdates/CreatePlayDate/:id' element={<CreatePlayDate 
               handlePlayDate={handlePlayDate} 
               dogOne={dogOne}
