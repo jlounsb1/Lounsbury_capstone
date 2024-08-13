@@ -77,7 +77,7 @@ function CreatePlayDate(props) {
                
                 onChange ={(e) => props.setDogTwo(e.target.value)}
                 />
-                <label htmlFor='playDate'>Please write down time and place for Playdate:</label>
+                <label htmlFor='playDate'>Please write down time, place, and your information for Playdate:</label>
                 <input 
                 type="text" 
                 name={props.playDate}
