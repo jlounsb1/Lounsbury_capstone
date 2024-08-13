@@ -45,7 +45,7 @@ export default function PlayDates(props) {
      const filteredPlayDates = allPlayDates.filter(function(playdate){return playdate.dogOne ==yourDogAgain._id})
     
     return(
-       <>
+       <div className='main'>
         {!userLocalStorage_parsed.username && <h1>To see a list of your dogs Playdates, please log in</h1>}
        {userLocalStorage_parsed.username && <h1>Playdates for {userLocalStorage_parsed.username}'s puppers</h1>}
         {filteredPlayDates.map((playDate, index) => (
@@ -53,6 +53,6 @@ export default function PlayDates(props) {
                 <p><b>Information: </b>{playDate.playDate}</p>
             </div>   
         ))}
-       </>
+       </div>
     )
 }

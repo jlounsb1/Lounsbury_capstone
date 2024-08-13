@@ -14,7 +14,7 @@ export default function Nav(props) {
 let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
 
     return (
-        <>
+        <div className="nav">
             <ul>
                 <li>
                     <Link to='/'>Home</Link>
@@ -32,6 +32,6 @@ let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'
                 </li>
                 
             </ul>
-        </>
+        </div>
     )
 }

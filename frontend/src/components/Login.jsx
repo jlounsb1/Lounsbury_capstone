@@ -10,17 +10,17 @@ function Login(props) {
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
     localStorage.clear();
     return(
-        <div>
+        <div className='main'>
             <h1>Login</h1>
             <form onSubmit={props.handleSubmit}>
-            <label htmlFor="username"><strong>Username:</strong></label>
+            <label htmlFor="username"><strong>Username: </strong></label>
             <input
             type="text" 
             placeholder="username" 
             name={props.username} 
             onChange={(e) => props.setUserName(e.target.value)}
              /> <br />
-            <label htmlFor="password"><strong>Password:</strong></label>
+            <label htmlFor="password"><strong>Password: </strong></label>
             <input
             type="text" 
             placeholder="password" 

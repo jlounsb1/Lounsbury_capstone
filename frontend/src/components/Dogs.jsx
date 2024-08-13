@@ -36,7 +36,7 @@ export default function Dogs(props) {
     const IUD =params.id
 console.log(yourDog)
     return (
-        <div>
+        <div className='main'>
        <div className="otherDogs">
         <h1>Other Dogs To play with:</h1>
            {allDogs.map((dog, index) => (

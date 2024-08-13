@@ -46,7 +46,7 @@ function CreatePlayDate(props) {
     let dogOneValue = yourDog._id;
     let dogTwoValue = otherDog._id
     return (
-        <div>
+        <div className='main'>
         <h1>Make A Playdate</h1>
         <div>
             <h3>User: {yourDog.username}</h3>

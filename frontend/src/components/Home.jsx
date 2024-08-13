@@ -11,7 +11,7 @@ export default function Home (props) {
   
     return(
         
-        <div className='homepage'>
+        <div className='main'>
         {!userLocalStorage_parsed.username &&<h1> Welcome to Doggy Playdates</h1>}      
         
         {userLocalStorage_parsed.username && <h1>Welcome: {userLocalStorage_parsed.username}</h1>}

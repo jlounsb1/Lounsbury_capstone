@@ -12,7 +12,7 @@ function Signup(props) {
     const params =useParams();
     const IUD =params.id
     return(
-        <div>
+        <div className='main'>
         <h1>Register</h1>
         <form onSubmit={props.handleRegister}>
             <label htmlFor="username"><strong>Username:</strong></label>
