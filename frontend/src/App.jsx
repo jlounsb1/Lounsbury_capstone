@@ -31,8 +31,9 @@ function App(props) {
     e.preventDefault();
     axios.post(`http://localhost:3000/login`, {username, password, loggedIn, dogName, age} )
         .then(result => {
+          // if(user){
                 navigate(`/`)
-            
+          // } else(window.alert(`Please try again`))
         })
         .catch(err=>console.log(err))
         

@@ -1,5 +1,5 @@
 
-import OtherDog from './OtherDog'
+
 import React from 'react'
 import {useState, useEffect} from 'react';
 import axios from 'axios'
@@ -26,9 +26,7 @@ export default function Dogs(props) {
         })
         .catch(err =>console.log(err))
     }, [])
-    const params =useParams();
-    const IUD =params.id
-    
+   
 
     useEffect(()=>{
         axios.get(`http://localhost:3000/dogs`)
@@ -40,18 +38,23 @@ export default function Dogs(props) {
     }, [])
 
     
+    const params =useParams();
+    const IUD =params.id
+
+
+    console.log(yourDog, userLocalStorage_parsed)
 
    //I can get the data to console, but I can't get it to return, and therefor be able to be mapped
     return (
         <>
        <div className="matchingChart">
        <div className="yourInfo">
-        {yourDog.username && <>
+       
         <h3>{yourDog.username}'s dogs info:</h3>
             <p>Name: {yourDog.dogName}</p>
             <p>Age: {yourDog.age}</p>
             <p>This is where I want to list the users information</p>
-            </>}
+            
        </div>
        <div className="otherDog">
         <h3>Other Dogs To play with:</h3>

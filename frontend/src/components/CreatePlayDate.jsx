@@ -13,6 +13,7 @@ function CreatePlayDate(props) {
     useEffect(() =>{
       axios.get(`http://localhost:3000/dogs`)
          .then((result) =>{
+            
              for(let i=0; i<result.data.length;i++){
                  if(result.data[i].username===userLocalStorage_parsed.username) {
                  let yourInfo = result.data[i]
@@ -21,7 +22,7 @@ function CreatePlayDate(props) {
          })
          .catch(err =>console.log(err))
      }, [])
-
+     
 
     //get other dog from req.params
     useEffect(() =>{
@@ -43,8 +44,10 @@ function CreatePlayDate(props) {
      //your info from local storage
     const userInfo = localStorage.getItem("userLocalStorage")
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-    console.log(`your dog:`, yourDog, `local storage: `, userLocalStorage_parsed, `other Dog`, otherDog)
-
+    // console.log(`your dog:`, yourDog, `local storage: `, userLocalStorage_parsed, `other Dog`, otherDog)
+       let dogOneValue = props.dogOne;
+       let dogTwoValue = props.dogTwo
+      
     return (
         <>
         <div>
@@ -60,21 +63,19 @@ function CreatePlayDate(props) {
         </div>
         <div>
             <form onSubmit={props.handlePlayDate}>
-                <label htmlFor='dogOne'>You: {yourDog.username}</label>
+                <label htmlFor='dogOne'>You: {yourDog.username}.</label>
                 <input 
                 type="text"
-                
+                value={dogOneValue}
                 name={props.dogOne}
-                value={yourDog._id}
-                onSubmit ={(e) => props.setDogOne(e.target.value)}
+                onChange ={(e) => props.setDogOne(dogOneValue)}
                 />
-                <label htmlFor='dogTwo'>Playmate: {otherDog.dogName}. Owner: {otherDog.username}</label>
+                <label htmlFor='dogTwo'>Playmate: {otherDog.dogName}. Owner: {otherDog.username}.</label>
                 <input 
                 type="text"
-                
                 name={props.dogTwo}
-                value={otherDog._id}
-                onSubmit ={(e) => props.setDogTwo(e.target.value)}
+                value={dogTwoValue}
+                onChange ={(e) => props.setDogTwo(dogTwoValue)}
                 />
                 <label htmlFor='playDate'>Please write down time and place for Playdate:</label>
                 <input 

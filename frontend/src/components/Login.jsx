@@ -23,7 +23,7 @@ function Login(props) {
             name={props.password} 
             onChange={(e) => props.setPassword(e.target.value)}
              />
-            <button type="submit" name="true" onClick={(e) => props.setLoggedIn(Boolean(e.target.name))}>Login</button>
+            <button type="submit" name="true" onSubmit={(e) => props.setLoggedIn(Boolean(e.target.name))}>Login</button>
             </form>
         <Link to='/register'>Signup</Link>
         </div>
