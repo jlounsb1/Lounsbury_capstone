@@ -34,17 +34,9 @@ export default function Dogs(props) {
 
     const params =useParams();
     const IUD =params.id
-
+console.log(yourDog)
     return (
         <div>
-        {/* This was added last, something bricked last time I tried to do this. Putting in comment to mark my place in case removal nessisary */}
-        {userLocalStorage_parsed &&
-       <div className="yourInfo">
-        <h1>User: {yourDog.username}</h1>
-            <p>Your dog: {yourDog.dogName}</p>
-            <p>Age: {yourDog.age}</p>
-       </div>
-        }
        <div className="otherDogs">
         <h1>Other Dogs To play with:</h1>
            {allDogs.map((dog, index) => (

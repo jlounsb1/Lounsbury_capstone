@@ -29,6 +29,7 @@ function App(props) {
   //login function
   const handleSubmit = (e) =>{
     e.preventDefault();
+    
     axios.post(`http://localhost:3000/login`, {username, password, loggedIn, dogName, age} )
         .then(result => {
           // if(user){
@@ -51,6 +52,7 @@ function App(props) {
       }catch(error){
         console.log(error)
       }
+      userLocalStorage.clear();
     }
 
     const[dogOne, setDogOne]=useState()

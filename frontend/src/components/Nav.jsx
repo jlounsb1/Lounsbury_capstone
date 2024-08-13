@@ -26,11 +26,11 @@ let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'
                 <li>
                     <Link to='/dogs'>Dog List</Link>
                 </li>
-                {!userLocalStorage_parsed.username &&
+                
                 <li>
                     <Link to='/login'> Login /Sign Up</Link>
                 </li>
-                }
+                
             </ul>
         </>
     )

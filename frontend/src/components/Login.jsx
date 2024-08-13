@@ -1,10 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useState, useRef } from 'react';
-
+import {useParams} from 'react-router-dom'
 
 function Login(props) {
-
+    const params =useParams();
+    const IUD =params.id
+    const userInfo = localStorage.getItem("userLocalStorage")
+    let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
+    localStorage.clear();
     return(
         <div>
             <h1>Login</h1>
