@@ -63,16 +63,18 @@ function CreatePlayDate(props) {
                 <label htmlFor='dogOne'>You: {yourDog.username}</label>
                 <input 
                 type="text"
+                
                 name={props.dogOne}
                 value={yourDog._id}
-                onChange ={(e) => props.setDogOne(e.target.value)}
+                onSubmit ={(e) => props.setDogOne(e.target.value)}
                 />
                 <label htmlFor='dogTwo'>Playmate: {otherDog.dogName}. Owner: {otherDog.username}</label>
                 <input 
                 type="text"
+                
                 name={props.dogTwo}
                 value={otherDog._id}
-                onChange ={(e) => props.setDogTwo(e.target.value)}
+                onSubmit ={(e) => props.setDogTwo(e.target.value)}
                 />
                 <label htmlFor='playDate'>Please write down time and place for Playdate:</label>
                 <input 

@@ -46,7 +46,7 @@ function App(props) {
           url: 'http://localhost:3000/register',
           method:"POST", 
           data: {username, email, password, dogName, age:Number(age)}
-        })
+        }).then(result =>{navigate('/login')})
       }catch(error){
         console.log(error)
       }
@@ -63,7 +63,7 @@ function App(props) {
           url: 'http://localhost:3000/playdates/createplaydate/:id',
           method:"POST", 
           data: {dogOne, dogTwo, playDate}
-        })
+        }).then(result =>{navigate('/playdates')})
       }catch(error) {
         console.log(error)
       }
