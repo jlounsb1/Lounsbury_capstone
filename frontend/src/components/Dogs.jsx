@@ -42,7 +42,7 @@ export default function Dogs(props) {
     const IUD =params.id
 
 
-    console.log(yourDog, userLocalStorage_parsed)
+    console.log(`your dog:`, yourDog, `information in local storage:`, userLocalStorage_parsed, `all dogs:`, allDogs)
 
    //I can get the data to console, but I can't get it to return, and therefor be able to be mapped
     return (

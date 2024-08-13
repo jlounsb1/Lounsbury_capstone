@@ -70,6 +70,7 @@ function App(props) {
       }
     }
 
+    
 
     //placing user input into local storage, so I can access it globally
       let userLocalStorage = {
@@ -119,7 +120,8 @@ function App(props) {
             <Route path='/dogs' element={<Dogs 
             />}></Route>
             <Route path='/playdates' element={<PlayDates 
-              //This is where I will pass down any state that I need
+              dogOne={dogOne}
+              dogTwo={dogTwo}
             />}></Route>
             <Route path='/playdates/CreatePlayDate/:id' element={<CreatePlayDate 
               handlePlayDate={handlePlayDate} 

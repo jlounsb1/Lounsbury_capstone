@@ -45,9 +45,9 @@ function CreatePlayDate(props) {
     const userInfo = localStorage.getItem("userLocalStorage")
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
     // console.log(`your dog:`, yourDog, `local storage: `, userLocalStorage_parsed, `other Dog`, otherDog)
-       let dogOneValue = props.dogOne;
-       let dogTwoValue = props.dogTwo
-      
+       let dogOneValue = yourDog._id;
+       let dogTwoValue = otherDog._id
+      console.log(`create playdate section, dog one value:`, dogOneValue, `dog two value: `, dogTwoValue)
     return (
         <>
         <div>
@@ -63,19 +63,19 @@ function CreatePlayDate(props) {
         </div>
         <div>
             <form onSubmit={props.handlePlayDate}>
-                <label htmlFor='dogOne'>You: {yourDog.username}.</label>
+                <label htmlFor='dogOne'>You: {yourDog.username}. Please copy this code to the input below: {dogOneValue}</label>
                 <input 
                 type="text"
-                value={dogOneValue}
+                
                 name={props.dogOne}
-                onChange ={(e) => props.setDogOne(dogOneValue)}
+                onChange ={(e) => props.setDogOne(e.target.value)}
                 />
-                <label htmlFor='dogTwo'>Playmate: {otherDog.dogName}. Owner: {otherDog.username}.</label>
+                <label htmlFor='dogTwo'>Playmate: {otherDog.dogName}. Owner: {otherDog.username}. Please copy this code to the input below: {dogTwoValue}</label>
                 <input 
                 type="text"
                 name={props.dogTwo}
-                value={dogTwoValue}
-                onChange ={(e) => props.setDogTwo(dogTwoValue)}
+               
+                onChange ={(e) => props.setDogTwo(e.target.value)}
                 />
                 <label htmlFor='playDate'>Please write down time and place for Playdate:</label>
                 <input 
