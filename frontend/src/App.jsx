@@ -60,7 +60,7 @@ function App(props) {
       e.preventDefault()
       try{
         await axios({
-          url: 'http://localhost:3000/playdates',
+          url: 'http://localhost:3000/playdates/createplaydate/:id',
           method:"POST", 
           data: {dogOne, dogTwo, playDate}
         })
