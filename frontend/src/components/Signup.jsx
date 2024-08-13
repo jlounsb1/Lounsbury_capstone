@@ -13,7 +13,7 @@ function Signup(props) {
     const IUD =params.id
     return(
         <div>
-        <h2>Register</h2>
+        <h1>Register</h1>
         <form onSubmit={props.handleRegister}>
             <label htmlFor="username"><strong>Username:</strong></label>
             <input
@@ -21,35 +21,35 @@ function Signup(props) {
             placeholder="username" 
             name={props.username} 
             onChange={(e) => props.setUserName(e.target.value)}
-             />
+             /> <br />
             <label htmlFor="password"><strong>Password:</strong></label>
             <input
             type="text" 
             placeholder="password" 
             name={props.password}
             onChange={(e) => props.setPassword(e.target.value)}
-             />
+             /> <br />
             <label htmlFor="email"><strong>Email:</strong></label>
             <input
             type="text" 
             placeholder="email" 
             name={props.email} 
             onChange={(e) => props.setEmail(e.target.value)}
-             />
-             <label htmlFor="dogName"><strong>Dog Name:</strong></label>
+             /><br />
+             <label htmlFor="dogName"><strong>Dog's Name:</strong></label>
             <input
             type="text" 
             placeholder="Dog Name" 
             name={props.dogName}
             onChange={(e) => props.setDogName(e.target.value)}
-             />
+             /> <br />
              <label htmlFor="age"><strong>Dog's Age:</strong></label>
             <input
             type="Number" 
             placeholder="age" 
             name={props.age} 
             onChange={(e) => props.setAge(e.target.value)}
-             />
+             /><br />
 
         <button type="submit">Register</button>
         </form>
