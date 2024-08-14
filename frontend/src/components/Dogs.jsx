@@ -38,14 +38,14 @@ let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'
 
     return (
         <div className='main'>
-       <div className="otherDogs">
         <h1>Other Dogs To play with:</h1>
+       <div className="otherDogs">
            {allDogs.map((dog, index) => (
             <div key={index} className='eachDog'>
-                <p>Dog: {dog.dogName}</p>
-                <p>Dog's Age :{dog.age}</p>
-                <p>Owner's Contact: {dog.email}</p>
-                <Link to={`/playdates/createplaydate/${dog._id}`}>Make A playdate</Link>
+                <p><strong>Dog: </strong>{dog.dogName}</p>
+                <p><strong>Dog's Age: </strong>{dog.age}</p>
+                <p><strong>Owner's Contact: </strong>{dog.email}</p>
+                <Link className='linkbtn' to={`/playdates/createplaydate/${dog._id}`}>Make A playdate</Link>
             </div>
            ))}
        </div>

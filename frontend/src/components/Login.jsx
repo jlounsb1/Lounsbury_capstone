@@ -26,10 +26,10 @@ function Login(props) {
             placeholder="password" 
             name={props.password} 
             onChange={(e) => props.setPassword(e.target.value)}
-             />
+             /> <br />
             <button type="submit" name="true" onSubmit={(e) => props.setLoggedIn(Boolean(e.target.name))}>Login</button>
             </form>
-        <Link to='/register'>Need to set up an account? Signup</Link>
+        <Link to='/register' className='linkbtn'>Need to set up an account? Signup</Link>
         </div>
     )
 }

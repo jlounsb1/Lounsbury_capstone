@@ -48,11 +48,14 @@ export default function PlayDates(props) {
        <div className='main'>
         {!userLocalStorage_parsed.username && <h1>To see a list of your dogs Playdates, please log in</h1>}
        {userLocalStorage_parsed.username && <h1>Playdates for {userLocalStorage_parsed.username}'s puppers</h1>}
+       <div className='playDates'>
         {filteredPlayDates.map((playDate, index) => (
             <div key={index} className='eachPlayDate'>
-                <p><b>Information: </b>{playDate.playDate}</p>
+                <h3>Information:</h3>
+                <p>{playDate.playDate}</p>
             </div>   
         ))}
+        </div>
        </div>
     )
 }

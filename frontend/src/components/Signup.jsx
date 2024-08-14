@@ -53,7 +53,7 @@ function Signup(props) {
 
         <button type="submit">Register</button>
         </form>
-        <Link to='/login'>Already Have an account? Sign In.</Link>
+        <Link className='linkbtn' to='/login'>Already Have an account? Sign In.</Link>
         </div>
     )
 }
