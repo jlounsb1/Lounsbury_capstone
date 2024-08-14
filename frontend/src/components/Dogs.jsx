@@ -5,12 +5,13 @@ import {Link} from 'react-router-dom'
 import{useParams} from 'react-router-dom'
 
 //pulling the users information from local storage
-const userInfo = localStorage.getItem("userLocalStorage")
-let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
+
 
 export default function Dogs(props) {
    const [yourDog, setYourDog]=useState('')
    const [allDogs, setAllDogs]=useState([])
+   const userInfo = localStorage.getItem("userLocalStorage")
+let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
    useEffect(() =>{
      axios.get(`http://localhost:3000/dogs`)
         .then((result) =>{
@@ -34,7 +35,7 @@ export default function Dogs(props) {
 
     const params =useParams();
     const IUD =params.id
-console.log(yourDog)
+
     return (
         <div className='main'>
        <div className="otherDogs">
