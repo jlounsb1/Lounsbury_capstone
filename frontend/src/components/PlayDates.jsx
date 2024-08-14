@@ -42,8 +42,14 @@ export default function PlayDates(props) {
         }, [])
 
     //filtered list of playdates that match the current user.
-     const filteredPlayDates = allPlayDates.filter(function(playdate){return playdate.dogOne ==yourDogAgain._id})
-    
+     const filteredPlayDates = allPlayDates.filter(checkplaydate)
+        function checkplaydate(playdate) {
+            if(playdate.dogOne===yourDogAgain._id ||playdate.dogTwo ===yourDogAgain._id){
+            return playdate
+            }
+        }
+
+    console.log(filteredPlayDates, yourDogAgain._id)
     return(
        <div className='main'>
         {!userLocalStorage_parsed.username && <h1>To see a list of your dogs Playdates, please log in</h1>}
