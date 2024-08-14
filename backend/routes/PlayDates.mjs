@@ -1,5 +1,5 @@
 import express from 'express'
-import PlayDates from '../models/Playdates.mjs'
+import PlayDates from '../models/playdates.mjs'
 const router = express.Router()
 
 router.get('/', async (req, res) => {
