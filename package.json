@@ -5,7 +5,12 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "npm run dev --prefix frontend",
+    "server:dev": "nodemon backend/server.js",
+    "server:prod": "NODE_ENV=production nodemon backend/server.js",
+    "start": "concurrently \"npm run server:dev\" \"npm run client\"",
+    "prod": "concurrently \"npm run server:prod\" \"npm run client\"",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",

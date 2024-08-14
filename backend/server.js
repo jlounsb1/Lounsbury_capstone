@@ -10,7 +10,7 @@ import Dogs from './routes/Dogs.mjs'
 import PlayDates from './routes/PlayDates.mjs'
 
 //app information
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 //data transfer middleware
