@@ -48,8 +48,6 @@ export default function PlayDates(props) {
             return playdate
             }
         }
-
-    console.log(filteredPlayDates, yourDogAgain._id)
     return(
        <div className='main'>
         {!userLocalStorage_parsed.username && <h1>To see a list of your dogs Playdates, please log in</h1>}

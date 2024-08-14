@@ -20,7 +20,7 @@ export default function Home (props) {
         <br />
         <p>Once you have registered go ahead and sign in, then check out the dog list page to see a list of other users and their dogs. This is where you can see a button to set up a play time. Make sure to provide all the information the other user would need to have a successful playdate.</p>
         <br />
-        <p>To see your own playdates, just go to the play dates tab. You should be able to see all of your playdates there.</p>
+        <p> You should be able to see all of your play dates on the play dates tab.</p>
         
         </div>
     )
