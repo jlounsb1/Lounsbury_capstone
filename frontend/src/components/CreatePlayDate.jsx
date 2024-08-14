@@ -42,49 +42,53 @@ function CreatePlayDate(props) {
      //your info from local storage
     const userInfo = localStorage.getItem("userLocalStorage")
     let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
-    
+   
     let dogOneValue = yourDog._id;
     let dogTwoValue = otherDog._id
     return (
         <div className='main'>
         <h1>Make A Playdate</h1>
-        <div>
+        <div className="dogInfo">
+        <div className='yourDogInfo'>
             <h3>User: {yourDog.username}</h3>
-            <p>Dog: {yourDog.dogName}</p>
-            <p>Dog's age: {yourDog.age}</p>
+            <p><strong>Dog: </strong>{yourDog.dogName}</p>
+            <p><strong>age: </strong>{yourDog.age}</p>
         </div>
-        <div>
+        <div className='otherDogInfo'>
             <h3>Playmate: {otherDog.dogName}</h3>
-            <p>Playmate Age:{otherDog.age}</p>
-            <p>Owner: {otherDog.username}</p>
+            <p><strong>Age: </strong>{otherDog.age}</p>
+            <p><strong>Owner: </strong>{otherDog.username}</p>
         </div>
-        <div>
+        
+        </div>
+        <div className='submitplaydateform'>
             <form onSubmit={props.handlePlayDate}>
-                <label htmlFor='dogOne'><b>You:</b> {yourDog.username}. <b>Please copy this code to the input below: </b>{dogOneValue}</label>
+                <label htmlFor='dogOne'><b>You:</b> {yourDog.username}<br /><b>Please copy this code to the input below:</b><br />{dogOneValue}</label>
                 <input 
                 type="text"
                 
                 name={props.dogOne}
                 onChange ={(e) => props.setDogOne(e.target.value)}
                 /> <br />
-                <label htmlFor='dogTwo'><b>Playmate: </b>{otherDog.dogName} <b>Owner: </b>{otherDog.username} <b>Please copy this code to the input below: </b>{dogTwoValue}</label>
+                <label htmlFor='dogTwo'><b>Playmate: </b>{otherDog.dogName}<br /><b>Owner: </b>{otherDog.username}<br /><b>Please copy this code to the input below:</b><br />{dogTwoValue}</label>
                 <input 
                 type="text"
                 name={props.dogTwo}
-               
                 onChange ={(e) => props.setDogTwo(e.target.value)}
-                /> <br />
+                /> <br /><br />
                 <label htmlFor='playDate'>Please write down time, place, and your information for playdate:</label><br />
                 <input 
+                className='playdatetextarea'
                 type="textarea" 
                 name={props.playDate}
                 onChange={(e) => props.setPlayDate(e.target.value)}
                 /> <br /><br />
                 <button type="submit">Set up Play Date!</button>
             </form>
+         </div>
         </div>
         
-        </div>
+        
     )
 }
 

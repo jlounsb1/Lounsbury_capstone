@@ -119,3 +119,19 @@ input{
     border-radius:10px;
     box-shadow: 1px 1px 1px #CAF0F8;
 }
+
+.dogInfo{
+    display:flex;
+    margin-top:25px;
+    margin-bottom:50px;
+}
+.yourDogInfo{
+    margin-right:100px;
+}
+
+.playdatetextarea{
+    
+    padding-right:200px;
+    
+
+}
