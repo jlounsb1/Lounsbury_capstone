@@ -11,7 +11,7 @@ function CreatePlayDate(props) {
     const [otherDog, setOtherDog] =useState([])
     //get your dog
     useEffect(() =>{
-      axios.get(`http://localhost:3000/dogs`)
+      axios.get(`https://lounsbury-capstone.onrender.com/dogs`)
          .then((result) =>{
             
              for(let i=0; i<result.data.length;i++){
@@ -26,7 +26,7 @@ function CreatePlayDate(props) {
 
     //get other dog from req.params
     useEffect(() =>{
-        axios.get(`http://localhost:3000/dogs`)
+        axios.get(`https://lounsbury-capstone.onrender.com/dogs`)
            .then((result) =>{
                for(let i=0; i<result.data.length;i++){
                    if(result.data[i]._id===IUD) {

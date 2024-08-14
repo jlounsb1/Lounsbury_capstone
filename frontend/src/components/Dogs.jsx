@@ -13,7 +13,7 @@ export default function Dogs(props) {
    const userInfo = localStorage.getItem("userLocalStorage")
 let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'))
    useEffect(() =>{
-     axios.get(`http://localhost:3000/dogs`)
+     axios.get(`https://lounsbury-capstone.onrender.com/dogs`)
         .then((result) =>{
             for(let i=0; i<result.data.length;i++){
                 if(result.data[i].username===userLocalStorage_parsed.username) {
@@ -25,7 +25,7 @@ let userLocalStorage_parsed = JSON.parse(localStorage.getItem('userLocalStorage'
     }, [])
 
     useEffect(()=>{
-        axios.get(`http://localhost:3000/dogs`)
+        axios.get(`https://lounsbury-capstone.onrender.com/dogs`)
         .then((result) =>{
             let allDogs = result.data
             setAllDogs(allDogs)

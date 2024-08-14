@@ -13,7 +13,7 @@ export default function PlayDates(props) {
     const [allDogsAgain, setAllDogsAgain]=useState([])
 
     useEffect(() =>{
-        axios.get(`http://localhost:3000/dogs`)
+        axios.get(`https://lounsbury-capstone.onrender.com/dogs`)
            .then((result) =>{
                for(let i=0; i<result.data.length;i++){
                    if(result.data[i].username===userLocalStorage_parsed.username) {
@@ -25,7 +25,7 @@ export default function PlayDates(props) {
        }, [])
 
     useEffect(()=>{
-        axios.get(`http://localhost:3000/playdates`)
+        axios.get(`https://lounsbury-capstone.onrender.com/playdates`)
         .then((result) =>{
             setallPlayDates(result.data)
             })
@@ -33,7 +33,7 @@ export default function PlayDates(props) {
         }, [])
 
     useEffect(()=>{
-        axios.get(`http://localhost:3000/dogs`)
+        axios.get(`https://lounsbury-capstone.onrender.com/dogs`)
         .then((result) =>{
             let allDogsAgain = result.data
             setAllDogsAgain(allDogsAgain)
