@@ -118,6 +118,7 @@ input{
     padding:15px;
     border-radius:10px;
     box-shadow: 1px 1px 1px #CAF0F8;
+    width:50%;
 }
 
 .dogInfo{
@@ -129,9 +130,6 @@ input{
     margin-right:100px;
 }
 
-.playdatetextarea{
-    
+.playdatetextarea{ 
     width:400px;
-    
-
 }
